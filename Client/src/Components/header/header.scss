@@ -3,24 +3,30 @@
     align-items: center;
     align-content: center;
     justify-content: space-between;
-    background-color: red;
+    background-color: #f4f4f4;
     height: 60px;
     padding: 0 20px;
-    
-    &__logo{
-        h3{
-color: white;  
+
+    &__logo {
+        h3 {
+            color: rgb(32, 31, 31);
         }
     }
-     &__buttons{
-     button{
-        margin-left: 10px;
-        padding: 5px; 
-        border-radius: 10px;
-        border: none;
-        outline: none;
-        min-width: 100px;
-     }
-     }
-    
+
+    &__buttons {
+        button {
+            margin-left: 10px;
+            padding: 5px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            min-width: 100px;
+            background-color: rgb(216, 216, 211);
+
+            &:hover {
+                background: #64686b;
+            }
+        }
+    }
+
 }
