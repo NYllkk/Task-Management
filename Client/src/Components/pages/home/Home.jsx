@@ -1,9 +1,17 @@
-import React from 'react'
+import React from 'react';
+import './home.scss';
 
 const Home = () => {
     return (
-        <div>Home</div>
-    )
-}
+        <div className="home">
+            <div className="home__container">
+                <h1>Task Manager</h1>
+                <p>jehgdjegdehjhev</p>
+            </div>
+            <button className='button' type="submit">Submit</button>
 
-export default Home
+        </div>
+    );
+};
+
+export default Home;
