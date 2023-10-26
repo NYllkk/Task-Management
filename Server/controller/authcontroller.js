@@ -1,4 +1,4 @@
-const User = require("../Database/modal/user.modal.js");
+const User = require("../Database/modal/user.modal.js")
 const jwt = require("jsonwebtoken");
 const Validator = require("email-validator");
 
@@ -10,20 +10,19 @@ const signIn = async (req, res) => {
         if (!user) {
             return res.status(400).send("Email doesn't match");
         }
-
-        const isPasswordValid = await user.comparePassword(password); // Assuming you have a comparePassword method in your User model
+        const isPasswordValid = await user.comparePassword(password);
 
         if (!isPasswordValid) {
             return res.status(400).send("Invalid email or password");
         }
 
-        const token = jwt.sign({ userId: user._id }, 'your-secret-key', { expiresIn: '1h' });
+        const token = jwt.sign({ userId: user._id }, "kjrehfuir", { expiresIn: '1h' });
         res.status(200).send({
             token,
-            username: user.username,
+            name: user.name,
             email: user.email,
-            createdAt :user.createdAt,
-            updatedAt :user.updatedAt,
+            createdAt: user.createdAt,
+            updatedAt: user.updatedAt,
         });
     } catch (error) {
         console.log(error);
@@ -32,14 +31,14 @@ const signIn = async (req, res) => {
 };
 
 const register = async (req, res) => {
-    const { email, password, username } = req.body;
+    const { email, password, name } = req.body;
     try {
         if (!email) return res.status(400).send("Email is required");
         if (!Validator.validate(email)) {
             return res.status(400).send("Enter a valid email");
         }
         if (!password || password.length < 6) return res.status(400).send("Password is required");
-        if (!username) return res.status(400).send("Username is not valid");
+        if (!name) return res.status(400).send("Username is not valid");
 
         const userExist = await User.findOne({ email });
         if (userExist) {
@@ -49,7 +48,7 @@ const register = async (req, res) => {
         const user = new User({
             email,
             password,
-            username, 
+            name,
         });
 
         await user.save();

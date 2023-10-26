@@ -9,11 +9,11 @@ const Header = () => {
       </div>
       <div className="header__buttons" >
         <Link to="/signin"><button type="button">Sign In </button></Link>
-        <Link to="/signup"><button type="button">Sign Out </button></Link>
-        
+        <Link to="/signup"><button type="button">Sign Up </button></Link>
+
       </div>
     </nav>
   )
 }
- 
+
 export default Header

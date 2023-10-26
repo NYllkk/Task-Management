@@ -1,5 +1,6 @@
 import React from 'react';
 import './home.scss';
+import { Link } from "react-router-dom"
 
 const Home = () => {
     return (
@@ -8,8 +9,7 @@ const Home = () => {
                 <h1>Task Manager</h1>
                 <p>jehgdjegdehjhev</p>
             </div>
-            <button className='button' type="submit">Submit</button>
-
+            <Link to="/login"><button className='button' type="submit">Submit</button></Link>
         </div>
     );
 };

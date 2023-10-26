@@ -4,12 +4,11 @@ import './registration.scss';
 const SignIn = () => {
     const [state, Setstate] = useState({
         email: "",
-        password: "",
     })
     const handleChange = (e) => {
         Setstate({
             ...state,
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
 
         })
         console.log(state)

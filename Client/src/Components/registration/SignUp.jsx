@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './registration.scss';
-import {useDispatch} from "react-redux"
-const dispatch = useDispatch()
+import { useDispatch } from "react-redux"
+import { register } from '../redux/authSlice';
 const SignUp = () => {
     const [state, Setstate] = useState({
         name: "",
@@ -9,6 +9,7 @@ const SignUp = () => {
         password: ""
 
     })
+    const dispatch = useDispatch()
 
     const handleChange = (e) => {
         Setstate({
@@ -16,13 +17,18 @@ const SignUp = () => {
             [e.target.name]: e.target.value
         })
 
+
     }
     const handleSubmit = (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
         dispatch(
-           regis 
+            register({
+                name: state.name,
+                password: state.password,
+                email: state.password,
+            })
         )
-        console.log("Submission Done ");
+        console.log("Submission Done ", state);
     }
 
     return (
@@ -30,14 +36,14 @@ const SignUp = () => {
             <div className="signup-form">
                 <div className="signup-form__wrapper">
                     <div className="form-group">
-                        <input type="text" placeholder="Enter your Name" name='name' value={state.name} onChange={handleChange} />
+                        <input type="text" autoComplete='on' placeholder="Enter your Name" name='name' value={state.name} onChange={handleChange} />
                     </div>
 
                     <div className="form-group">
-                        <input type="email" name="email" placeholder="Enter your Email" value={state.email} onChange={handleChange} />
+                        <input type="email" autoComplete='on' name="email" placeholder="Enter your Email" value={state.email} onChange={handleChange} />
                     </div>
                     <div className="form-group">
-                        <input type="password" name="password" placeholder="Enter your password" value={state.password} onChange={handleChange} />
+                        <input type="password" autoComplete='on' name="password" placeholder="Enter your password" value={state.password} onChange={handleChange} />
                     </div>
                     <div className="form-group">
                         <button type="submit" className="custom-button">Sign Up</button>
