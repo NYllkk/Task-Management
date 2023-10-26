@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './registration.scss';
-
+import { useDispatch } from 'react-redux';
+import { signin } from '../redux/authSlice';
 const SignIn = () => {
     const [state, Setstate] = useState({
         email: "",
@@ -13,12 +14,17 @@ const SignIn = () => {
         })
         console.log(state)
     }
+    const dispatch = useDispatch()
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Form submitted');
+        dispatch(
+            signin({
+                email: state.email,
+                password: state.password,
+            }))
+        console.log('Form submitted', state);
 
     };
-
     return (
         <form action="" onSubmit={handleSubmit}>
             <div className="signup-form">

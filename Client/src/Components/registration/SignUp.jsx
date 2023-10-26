@@ -25,7 +25,7 @@ const SignUp = () => {
             register({
                 name: state.name,
                 password: state.password,
-                email: state.password,
+                email: state.email,
             })
         )
         console.log("Submission Done ", state);

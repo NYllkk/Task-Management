@@ -1,6 +1,12 @@
 const User = require("../Database/modal/user.modal.js")
 const jwt = require("jsonwebtoken");
 const Validator = require("email-validator");
+const express = require("express")
+const router = express.Router()
+
+// router.get("/auth/register", (req, res) => {
+//     res.send("hare krishna");
+// });
 
 const signIn = async (req, res) => {
     let { email, password } = req.body;
@@ -32,6 +38,7 @@ const signIn = async (req, res) => {
 
 const register = async (req, res) => {
     const { email, password, name } = req.body;
+    console.log(req.body)
     try {
         if (!email) return res.status(400).send("Email is required");
         if (!Validator.validate(email)) {
@@ -52,7 +59,7 @@ const register = async (req, res) => {
         });
 
         await user.save();
-        return res.status(200).send("User added successfully");
+        return res.status(200).send(user);
     } catch (error) {
         console.log(error);
         return res.status(500).send("Error creating a new user");

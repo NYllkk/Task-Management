@@ -33,15 +33,18 @@ const cors = require("cors");
 const morgan = require("morgan");
 const authRoutes = require("./routes/authRoute.js");
 
-server.use(express.json());
-server.use(morgan("dev"));
 server.use(cors());
+server.use(morgan("dev"));
+server.use(express.json());
+// server.use(express.raw({ limit: '50m' }))
+// server.use(express.urlencoded({ extended: true }))
 
 server.get("/", (req, res) => {
     res.send("Hello from the backend");
 });
 
 server.use("/auth", authRoutes);
+// server.use("/register", authRoutes);
 
 const port = 4000;
 server.listen(port, () => {
