@@ -13,14 +13,14 @@ const Home = () => {
         <div className="home">
             <div className="home__container">
                 <h1>Task Manager</h1>
-                <p>jehgdjegdehjhev</p>
+                <p>orgnize</p>
                 {
                     currentUser && currentUser.token ? (
                         <Link to="/dashboard">
                             <button className='button'>trhty</button>
                         </Link>
                     ) : (
-                        <Link to="/signin">
+                        <Link to="/signIn">
                             <button className='button'>tyhythythtyjyt</button>
                         </Link>
                     )

@@ -5,6 +5,7 @@ import { signin } from '../redux/authSlice';
 const SignIn = () => {
     const [state, Setstate] = useState({
         email: "",
+        password: "",
     })
     const handleChange = (e) => {
         Setstate({

@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios"
 import history from "../../history";
-
 const initialState = {
     isLoading: false,
     currentUser: null,
@@ -32,7 +31,7 @@ export const authSlice = createSlice({
         }
     }
 })
-console.log("ek3jhfjfehjgfehjfvghjegf")
+
 
 export const { loginSuccess, loginfailure, registerSuccess, registerfailure, logoutSuccess } = authSlice.actions
 export default authSlice.reducer
@@ -67,13 +66,13 @@ export const register = (user) => async (dispatch) => {
 export const signin = (user) => async (dispatch) => {
 
     try {
-
         const response = await axios.post("http://localhost:4000/auth/signin", user)
         if (response) {
             localStorage.setItem("auth", JSON.stringify(response.data))
-            // localStorage.setItem("auth", JSON.stringify(response.data))
             dispatch(loginSuccess(response.data))
+            console.log(response)
             history.push("/dashboard")
+
             window.location.reload()
         } else {
             dispatch(loginfailure())

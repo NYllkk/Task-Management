@@ -6,6 +6,7 @@ import SignIn from "./Components/registration/SignIn"
 import { Routes, Route, Navigate } from "react-router-dom"
 import Home from './Components/pages/home/Home'
 import Dashboard from './Components/pages/dashboard/Dashboard'
+import TaskManager from './Components/pages/taskManagement/TaskManager'
 
 function App() {
 
@@ -16,6 +17,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/signIn" element={<SignIn />} />
         <Route path='/signup' element={<SignUp />} />
+        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/taskmanager' element={<TaskManager />} />
         <Route path='/dashboard' element={<Dashboard />} />
       </Routes>
     </>
