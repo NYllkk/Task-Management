@@ -20,7 +20,6 @@ const Dashboard = () => {
                 </div>
                 <div className="dashboard-card done">
                     <h3>Done</h3>
-
                 </div>
             </div>
             <Link to="/taskmanager">

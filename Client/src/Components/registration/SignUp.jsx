@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './registration.scss';
 import { useDispatch } from "react-redux"
 import { register } from '../redux/authSlice';
+import { useNavigate } from 'react-router-dom';
 const SignUp = () => {
     const [state, Setstate] = useState({
         name: "",
@@ -19,6 +20,7 @@ const SignUp = () => {
 
 
     }
+    const navigate = useNavigate()
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(
@@ -29,6 +31,8 @@ const SignUp = () => {
             })
         )
         console.log("Submission Done ", state);
+        navigate("/signin")
+
     }
 
     return (

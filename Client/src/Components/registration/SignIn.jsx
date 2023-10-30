@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import './registration.scss';
 import { useDispatch } from 'react-redux';
 import { signin } from '../redux/authSlice';
+import { useNavigate } from 'react-router-dom';
 const SignIn = () => {
+
+    const navigate = useNavigate()
     const [state, Setstate] = useState({
         email: "",
         password: "",
@@ -24,7 +27,7 @@ const SignIn = () => {
                 password: state.password,
             }))
         console.log('Form submitted', state);
-
+        navigate("/dashboard")
     };
     return (
         <form action="" onSubmit={handleSubmit}>

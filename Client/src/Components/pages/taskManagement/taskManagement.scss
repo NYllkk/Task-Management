@@ -1,3 +1,24 @@
 .taskmanager {
-    background-color: blue
+    display: flex;
+    height: 100%;
+}
+
+.taskmanager_left {
+    flex: 1;
+
+    color: #fff;
+
+    padding: 20px;
+
+}
+
+.taskmanager_right {
+    flex: 3;
+
+    padding: 20px;
+}
+
+.taskmanager_addtask {
+    margin-bottom: 20px;
+
 }

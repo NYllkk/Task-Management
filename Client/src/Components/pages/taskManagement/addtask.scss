@@ -1,0 +1,35 @@
+.addtask {
+    display: flex;
+    align-items: center;
+    /* Vertically center the input and button */
+    justify-content: space-between;
+    /* Add space between the input and button */
+}
+
+.addtask form {
+    flex: 1;
+
+}
+
+.addtask input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #f4f4f4;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+}
+
+.addtask .button {
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    min-width: 100px;
+    background-color: rgb(216, 216, 211);
+
+    &:hover {
+        background: #64686b;
+    }
+}

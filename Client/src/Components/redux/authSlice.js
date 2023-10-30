@@ -1,9 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios"
 import history from "../../history";
+import { useNavigate } from "react-router-dom";
+
 const initialState = {
     isLoading: false,
     currentUser: null,
+    currentUser: {
+        "name": "nikhil",
+        "id": "1"
+    },
     error: false
 }
 export const authSlice = createSlice({
@@ -32,10 +38,11 @@ export const authSlice = createSlice({
     }
 })
 
-
 export const { loginSuccess, loginfailure, registerSuccess, registerfailure, logoutSuccess } = authSlice.actions
 export default authSlice.reducer
+
 export const register = (user) => async (dispatch) => {
+    const navigate = useNavigate()
     console.log(user)
     try {
         const formdata = new FormData();
@@ -50,20 +57,22 @@ export const register = (user) => async (dispatch) => {
         const response = await axios.post("http://localhost:4000/auth/register", formdata, config)
         if (response) {
             dispatch(registerSuccess(response.data))
-            history.push("/signIn")
-            window.location.reload()
+            // history.push("/signIn")
+            navigate("/signin");
+            // window.location.href = '/signin';
+            // window.location.reload()
         } else {
             dispatch(registerfailure())
         }
         console.log("submission Succeesfull")
     }
-
     catch (error) {
         console.log(error)
     }
 }
 
 export const signin = (user) => async (dispatch) => {
+    console.log(user)
 
     try {
         const response = await axios.post("http://localhost:4000/auth/signin", user)
@@ -72,8 +81,7 @@ export const signin = (user) => async (dispatch) => {
             dispatch(loginSuccess(response.data))
             console.log(response)
             history.push("/dashboard")
-
-            window.location.reload()
+            // window.location.href = '/dashboard';
         } else {
             dispatch(loginfailure())
         } console.log("registration Successfull")
@@ -81,8 +89,6 @@ export const signin = (user) => async (dispatch) => {
         console.log(error)
     }
 }
-
-
 
 // 
 

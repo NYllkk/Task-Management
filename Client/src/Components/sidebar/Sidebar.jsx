@@ -1,27 +1,31 @@
-import { current } from '@reduxjs/toolkit'
-import React from 'react'
-import { useSelector } from "react-redux"
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import "./sidebar.scss"
+
 const Sidebar = () => {
-    const { auth } = useSelector((state) => ({ ...state }))
-    const { currentUser } = auth
-    console.log(currentUser, "in sidebar ")
+    const { auth } = useSelector((state) => ({ ...state }));
+    const { currentUser } = auth;
+
     return (
-        // <div>
-        //     {currentUser.name}
-        // </div>
-        <div>
+        <div className="sidebar-container">
+            <div className="user-profile">
+                Hello {currentUser.name}
+            </div>
             <ul className="sidebar">
-                <li className="list">
-                    {/* {currentUser.name} */}
-
+                <li className="list-item">
+                    <Link to="/dashboard">
+                        Dashboard
+                    </Link>
                 </li>
-                <li className="list">
-
+                <li className="list-item">
+                    <Link to="/setting">
+                        Setting
+                    </Link>
                 </li>
             </ul>
         </div>
-
-    )
-}
+    );
+};
 
 export default Sidebar;
